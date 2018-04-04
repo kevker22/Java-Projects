@@ -1,5 +1,5 @@
 
-package aufgabe_3_Double_Linked_List;
+package aufgabe_7_Generische_Liste;
 
 
 /**
@@ -10,21 +10,21 @@ package aufgabe_3_Double_Linked_List;
  * 
  * @author Kevin Bastian
  */
-public class DoppeltVerketteteListe {
+public class DoppeltVerketteteListe<E> {
 
-	public ListenElement getFirst() {
+	public ListenElement<E> getFirst() {
 		return first;
 	}
 
-	public void setFirst(ListenElement first) {
+	public void setFirst(ListenElement<E> first) {
 		this.first = first;
 	}
 
-	public ListenElement getLast() {
+	public ListenElement<E> getLast() {
 		return last;
 	}
 
-	public void setLast(ListenElement last) {
+	public void setLast(ListenElement<E> last) {
 		this.last = last;
 	}
 
@@ -36,8 +36,8 @@ public class DoppeltVerketteteListe {
 		this.size = size;
 	}
 
-	private ListenElement first;
-	private ListenElement last;
+	private ListenElement<E> first;
+	private ListenElement<E> last;
 	private int size;
 
 	/**
@@ -49,8 +49,8 @@ public class DoppeltVerketteteListe {
 	 *            = dem Übergebenen String was eingefügt werden soll
 	 */
 
-	public void addFirst(String value) {
-		ListenElement element = new ListenElement();
+	public void addFirst(E value) {
+		ListenElement<E> element = new ListenElement<E>();
 		element.setData(value);
 		if (size > 0) {
 			element.setNachfolger(first);
@@ -74,8 +74,8 @@ public class DoppeltVerketteteListe {
 	 *            = dem Übergebenen String was eingefügt werden soll
 	 */
 
-	public void addLast(String value) {
-		ListenElement element = new ListenElement();
+	public void addLast(E value) {
+		ListenElement<E> element = new ListenElement<E>();
 		element.setData(value);
 		if (size > 0) {
 			element.setVorgaenger(last);
@@ -100,7 +100,7 @@ public class DoppeltVerketteteListe {
 	 *            Der Übergebene String der zur Liste hinzugefügt werden soll
 	 */
 
-	public void addSomewhere(int index, String value)
+	public void addSomewhere(int index, E value)
 	{
 		if (index <= 0) // Die Liste kann nicht weniger als 0 Elemente haben
 		{
@@ -119,7 +119,7 @@ public class DoppeltVerketteteListe {
 			else
 			{
 				assert (index > 1) & (index < size);
-				ListenElement iteratorElement = first;
+				ListenElement<E> iteratorElement = first;
 
 				// iterriert durch bis zur richtigen Position der Liste
 				while (index > 1)
@@ -127,7 +127,7 @@ public class DoppeltVerketteteListe {
 					iteratorElement = iteratorElement.getNachfolger();
 					index--;
 				}
-				ListenElement newElement = new ListenElement();
+				ListenElement<E> newElement = new ListenElement<E>();
 				newElement.setData(value);
 
 				// der Nachfolger des Neuen Elements ist die Position des
@@ -159,7 +159,7 @@ public class DoppeltVerketteteListe {
 	 * @return Daten des gewählten Elements das ausgegeben werden soll am geünschten
 	 *         Index
 	 */
-	public String getElement(int index) {
+	public E getElement(int index) {
 		if (index <= 0) {
 			throw new IllegalArgumentException("Index muss größer als 0 sein!");
 		} else if (index == 1) {
@@ -167,7 +167,7 @@ public class DoppeltVerketteteListe {
 		} else if (index == size) {
 			return last.getData();
 		} else {
-			ListenElement iteratorElement = first;
+			ListenElement<E> iteratorElement = first;
 
 			/*
 			 * der Nachfolger des Nachfolgers wird zum neuen Nachfolger bis wir die
@@ -186,10 +186,10 @@ public class DoppeltVerketteteListe {
 	 * Diese Methode enfernt das erste Element aus der Liste
 	 * @return Daten des ersten bzw des gelöschten Elements
 	 */
-	public String removeFirst()
+	public E removeFirst()
 	{
 		assert size > 0; // überprüft ob die Liste nicht leer ist
-		final String data = first.getData(); // neuer String Data übernimmt Werte von 1. Element
+		final E data = first.getData(); // neuer String Data übernimmt Werte von 1. Element
 		first = first.getNachfolger(); // Erstes Element wird zum Nachfolgenden verschoben
 		first.setVorgaenger(null);  // Erstes Element wird Null gesetzt
 		size--; // Die Größe der Liste wird um eines verringert
@@ -200,10 +200,10 @@ public class DoppeltVerketteteListe {
 	 * Diese Methode entfernt das letzte Element aus der Liste
 	 * @return Daten des letzten bzw des gelöschten Elements
 	 */
-	public String removeLast()
+	public E removeLast()
 	{
 		assert size > 0; // überprüft ob die Liste nicht leer ist
-		final String data = last.getData(); // neuer String Data übernimmt Werte vom letzten Element
+		final E data = last.getData(); // neuer String Data übernimmt Werte vom letzten Element
 		last = last.getVorgaenger(); // Letztes Element wird zum Vorgänger verschoben
 		last.setNachfolger(null); // Letztes Element wird Null gesetzt
 		size--; //Die Größe der Liste wird um eines verringert
