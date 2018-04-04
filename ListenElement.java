@@ -1,37 +1,37 @@
 
-package aufgabe_7_Generische_Liste;
+package aufgabe_3_Double_Linked_List;
 
 /**
  * @author Kevin Bastian
  *
  */
-public class ListenElement<E> {
+public class ListenElement {
 
-	private E data;
-	private ListenElement<E> vorgaenger;
-	private ListenElement<E> nachfolger;
+	private String data;
+	private ListenElement vorgaenger;
+	private ListenElement nachfolger;
 
-	public E getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(E data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 
-	public ListenElement<E> getVorgaenger() {
+	public ListenElement getVorgaenger() {
 		return vorgaenger;
 	}
 
-	public void setVorgaenger(ListenElement<E> vorgaenger) {
+	public void setVorgaenger(ListenElement vorgaenger) {
 		this.vorgaenger = vorgaenger;
 	}
 
-	public ListenElement<E> getNachfolger() {
+	public ListenElement getNachfolger() {
 		return nachfolger;
 	}
 
-	public void setNachfolger(ListenElement<E> nachfolger) {
+	public void setNachfolger(ListenElement nachfolger) {
 		this.nachfolger = nachfolger;
 	}
 

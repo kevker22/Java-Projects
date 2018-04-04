@@ -1,13 +1,8 @@
-package aufgabe_7_Generische_Liste;
+package aufgabe_3_Double_Linked_List;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-/**
- * Ein Test für die Abgeänderte Double Linked List mit <E> statt Strings mit String Element als Beispiel.
- * @author Kevin Bastian
- *
- */
 
 public class DoppeltVerketteteListeTest
 {
@@ -18,7 +13,7 @@ public class DoppeltVerketteteListeTest
 	@Test
 	public void testDoppeltVerketteteListe()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		assertEquals(null, list.getFirst());
 		assertEquals(null, list.getLast());
 		assertEquals(0, list.getSize());
@@ -30,7 +25,7 @@ public class DoppeltVerketteteListeTest
 	@Test
 	public void testAddLast1()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.addLast("hallo");
 		assertEquals("hallo", list.getFirst().getData());
 		assertEquals("hallo", list.getLast().getData());
@@ -43,7 +38,7 @@ public class DoppeltVerketteteListeTest
 	@Test
 	public void testAddFirst1()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.addFirst("hallo");
 		assertEquals("hallo", list.getFirst().getData());
 		assertEquals("hallo", list.getLast().getData());
@@ -56,7 +51,7 @@ public class DoppeltVerketteteListeTest
 	@Test
 	public void testAddFirst2()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.addFirst("hallo");
 		list.addFirst("name");
 		list.addLast("datum");
@@ -71,7 +66,7 @@ public class DoppeltVerketteteListeTest
 	@Test
 	public void testAddSome1()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.addSomewhere(1, "hallo");
 		assertEquals("hallo", list.getFirst().getData());
 		assertEquals("hallo", list.getLast().getData());
@@ -85,7 +80,7 @@ public class DoppeltVerketteteListeTest
 	@Test
 	public void testAddSome2()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.addSomewhere(363, "hallo");
 		assertEquals("hallo", list.getFirst().getData());
 		assertEquals("hallo", list.getLast().getData());
@@ -99,7 +94,7 @@ public class DoppeltVerketteteListeTest
 	@Test
 	public void testAddSome3()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.addFirst("hallo");
 		list.addFirst("name");
 		list.addLast("datum");
@@ -118,7 +113,7 @@ public class DoppeltVerketteteListeTest
 	@Test(expected = IllegalArgumentException.class)
 	public void testAddSome4()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.addFirst("hallo");
 		list.addFirst("name");
 		list.addLast("datum");
@@ -131,7 +126,7 @@ public class DoppeltVerketteteListeTest
 	@Test
 	public void testGetElement1()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.addFirst("hallo");
 		list.addFirst("name");
 		list.addLast("datum");
@@ -146,7 +141,7 @@ public class DoppeltVerketteteListeTest
 	@Test(expected = IllegalArgumentException.class)
 	public void testGetElement2()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.addFirst("hallo");
 		list.addFirst("name");
 		list.addLast("datum");
@@ -159,7 +154,7 @@ public class DoppeltVerketteteListeTest
 	@Test
 	public void testRemoveFirst1()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.addFirst("hallo");
 		list.addFirst("name");
 		list.addLast("datum");
@@ -176,7 +171,7 @@ public class DoppeltVerketteteListeTest
 	@Test(expected = AssertionError.class)
 	public void testRemoveFirst2()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.removeFirst();
 	}
 
@@ -186,7 +181,7 @@ public class DoppeltVerketteteListeTest
 	@Test
 	public void testRemoveLast1()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.addFirst("hallo");
 		list.addFirst("name");
 		list.addLast("datum");
@@ -203,7 +198,7 @@ public class DoppeltVerketteteListeTest
 	@Test(expected = AssertionError.class)
 	public void testRemoveLast2()
 	{
-		DoppeltVerketteteListe<String> list = new DoppeltVerketteteListe<String>();
+		DoppeltVerketteteListe list = new DoppeltVerketteteListe();
 		list.removeLast();
 	}
 }
